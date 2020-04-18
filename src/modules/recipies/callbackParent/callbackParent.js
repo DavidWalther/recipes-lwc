@@ -10,7 +10,19 @@ export default class CallbackParent extends LightningElement {
         const callbackChild = this.template.querySelector(
             'recipies-callback-child'
         );
+
         let returnValue;
+        /**
+         * create a anonymous function and
+         * pass it as method parameter to child component
+         *
+         * the anonymous function expects a parameter
+         * and copies it's value into 'returnValue'
+         *
+         * (value) => {
+         *   returnValue = value;
+         * }
+         */
         callbackChild.returnDate((value) => {
             returnValue = value;
         });
