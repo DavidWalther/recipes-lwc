@@ -14,7 +14,9 @@ export default class CallbackChild extends LightningElement {
     }
 
     fireEvent(currentDate) {
-        const evt = new CustomEvent('date', { detail: { value: currentDate } });
+        const evt = new CustomEvent('date', {
+            detail: { timestamp: currentDate }
+        });
         this.dispatchEvent(evt);
     }
 }
