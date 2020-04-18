@@ -9,7 +9,7 @@ describe('', () => {
         }
     });
 
-    test('include element into DOM', () => {
+    test('event is fired if no callback is passed', () => {
         const handler = jest.fn();
 
         /**
@@ -38,5 +38,30 @@ describe('', () => {
             expect(handler.mock.calls[0][0].detail).toBeDefined();
             expect(handler.mock.calls[0][0].detail.timestamp).toBeDefined();
         });
+    });
+
+    test('passed callback is called', () => {
+        /**
+         * Given
+         * An instance of the child component is created
+         */
+        const element = createElement('recipe-callback-child', {
+            is: CallbackChild
+        });
+
+        /**
+         * When
+         * the elements function is called including a callback
+         */
+        let returnedValue;
+        element.returnDate((value) => {
+            returnedValue = value;
+        });
+
+        /**
+         * Then
+         * the callback was used to return the value
+         */
+        expect(returnedValue).toBeDefined();
     });
 });
