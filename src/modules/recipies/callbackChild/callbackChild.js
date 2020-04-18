@@ -1,3 +1,3 @@
 import { LightningElement } from 'lwc';
 
-export default class CallbackParent extends LightningElement {}
+export default class CallbackChild extends LightningElement {}
