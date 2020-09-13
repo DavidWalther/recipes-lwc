@@ -1,2 +1,5 @@
-import { LightningElement } from 'lwc';
-export default class CompoundApiProperty extends LightningElement {}
+import { LightningElement, api } from 'lwc';
+export default class CompoundApiProperty extends LightningElement {
+    @api
+    property;
+}
